@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手串饰品预测系统</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>手串饰品预测系统</h1>
+            <p class="lead">基于命理学、风水学和五行理论的个性化手串推荐</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title text-center mb-4">个人信息</h2>
+                        <form id="predictionForm" action="/api/predict/fortune" method="post">
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="name" class="form-label">姓名</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="gender" class="form-label">性别</label>
+                                    <select class="form-select" id="gender" name="gender" required>
+                                        <option value="">请选择</option>
+                                        <option value="男">男</option>
+                                        <option value="女">女</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">出生日期类型</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="dateType" id="solarDate" value="solar" checked>
+                                    <label class="form-check-label" for="solarDate">
+                                        阳历（公历）
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="dateType" id="lunarDate" value="lunar">
+                                    <label class="form-check-label" for="lunarDate">
+                                        阴历（农历）
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-4">
+                                    <label for="birthYear" class="form-label">出生年</label>
+                                    <select class="form-select" id="birthYear" name="birth_year" required>
+                                        <option value="">请选择</option>
+                                        <!-- 年份选项将由JavaScript生成 -->
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="birthMonth" class="form-label">出生月</label>
+                                    <select class="form-select" id="birthMonth" name="birth_month" required>
+                                        <option value="">请选择</option>
+                                        <!-- 月份选项将由JavaScript生成 -->
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="birthDay" class="form-label">出生日</label>
+                                    <select class="form-select" id="birthDay" name="birth_day" required>
+                                        <option value="">请选择</option>
+                                        <!-- 日期选项将由JavaScript生成 -->
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="birthHour" class="form-label">出生时辰</label>
+                                <select class="form-select" id="birthHour" name="birth_hour" required>
+                                    <option value="">请选择</option>
+                                    <option value="0">子时 (23:00-00:59)</option>
+                                    <option value="1">丑时 (01:00-02:59)</option>
+                                    <option value="3">寅时 (03:00-04:59)</option>
+                                    <option value="5">卯时 (05:00-06:59)</option>
+                                    <option value="7">辰时 (07:00-08:59)</option>
+                                    <option value="9">巳时 (09:00-10:59)</option>
+                                    <option value="11">午时 (11:00-12:59)</option>
+                                    <option value="13">未时 (13:00-14:59)</option>
+                                    <option value="15">申时 (15:00-16:59)</option>
+                                    <option value="17">酉时 (17:00-18:59)</option>
+                                    <option value="19">戌时 (19:00-20:59)</option>
+                                    <option value="21">亥时 (21:00-22:59)</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="birthPlace" class="form-label">出生地点</label>
+                                <input type="text" class="form-control" id="birthPlace" name="birth_place" placeholder="例如：北京市">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="purpose" class="form-label">所求事项</label>
+                                <select class="form-select" id="purpose" name="purpose" required>
+                                    <option value="">请选择</option>
+                                    <option value="财运">财运</option>
+                                    <option value="婚姻">婚姻</option>
+                                    <option value="事业">事业</option>
+                                    <option value="健康">健康</option>
+                                    <option value="破小人">破小人</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="religion" class="form-label">宗教信仰</label>
+                                <select class="form-select" id="religion" name="religion" required>
+                                    <option value="">请选择</option>
+                                    <option value="无">无</option>
+                                    <option value="佛教">佛教</option>
+                                    <option value="道教">道教</option>
+                                    <option value="基督教">基督教</option>
+                                </select>
+                            </div>
+
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary btn-lg">开始预测</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container text-center">
+            <p>手串饰品预测系统 &copy; 2025 版权所有</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/main.js"></script>
+    </script>
+</body>
+</html>

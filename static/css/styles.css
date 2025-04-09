@@ -1,0 +1,133 @@
+/* 
+ * 手串饰品预测系统样式表
+ * 提供统一的样式定义，确保所有页面风格一致
+ */
+
+/* 基本样式 */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Microsoft YaHei', sans-serif;
+}
+
+.header {
+    background-color: #6c5ce7;
+    color: white;
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.footer {
+    background-color: #343a40;
+    color: white;
+    padding: 1.5rem 0;
+    margin-top: 2rem;
+}
+
+/* 卡片样式 */
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.section-title {
+    color: #6c5ce7;
+    border-bottom: 2px solid #6c5ce7;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* 按钮样式 */
+.btn-primary {
+    background-color: #6c5ce7;
+    border-color: #6c5ce7;
+}
+
+.btn-primary:hover {
+    background-color: #5b4bc9;
+    border-color: #5b4bc9;
+}
+
+/* 材质项样式 */
+.material-item {
+    border-left: 4px solid #6c5ce7;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* 加载指示器 */
+.loading-spinner {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    border: 0.25rem solid rgba(108, 92, 231, 0.3);
+    border-radius: 50%;
+    border-top-color: #6c5ce7;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* 表单样式 */
+.form-control:focus, .form-select:focus {
+    border-color: #6c5ce7;
+    box-shadow: 0 0 0 0.25rem rgba(108, 92, 231, 0.25);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .header {
+        padding: 1.5rem 0;
+    }
+    
+    .card {
+        margin-bottom: 15px;
+    }
+}
+
+/* 打印样式 */
+@media print {
+    .no-print {
+        display: none;
+    }
+    
+    .card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+    
+    .header, .footer {
+        background-color: white !important;
+        color: black !important;
+    }
+}
+
+/* 二维码容器 */
+#qrcode {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+/* 提示信息 */
+.tip-box {
+    background-color: #e9f5ff;
+    border-left: 4px solid #6c5ce7;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 0.25rem;
+}
+
+/* 结果高亮 */
+.highlight {
+    background-color: #fff3cd;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+}
